@@ -5,7 +5,8 @@
 package com.argentinaprograma.portfoliobackend.Service;
 
 
-import com.argentinaprograma.portfoliobackend.Dto.PortfolioDTO;
+import com.argentinaprograma.portfoliobackend.Dto.*;
+import com.argentinaprograma.portfoliobackend.Model.*;
 import com.argentinaprograma.portfoliobackend.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,6 +38,20 @@ public class PortfolioService {
                 proyRepo.findAll(),
                 tSkillRepo.findAll()
         );
+    }
+
+    public PersonaDTO modificarPersona(Long id, PersonaDTO nuevoPers) {
+        
+        Persona persona = persRepo.findById(id).orElse(null);
+        
+        persona.setNombreCompleto(nuevoPers.getNombreCompleto());
+        persona.setDescripcion(nuevoPers.getDescripcion());
+        persona.setNacimiento(nuevoPers.getNacimiento());
+        persona.setProfesion(nuevoPers.getProfesion());
+        persona.setUrlFoto(nuevoPers.getUrlFoto());
+        persona.setUrlBanner(nuevoPers.getUrlBanner());
+        persRepo.save(persona);
+        return nuevoPers;
     }
     
     
