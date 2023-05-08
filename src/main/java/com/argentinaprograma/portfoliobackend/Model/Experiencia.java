@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,18 +26,20 @@ public class Experiencia {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long idExperiencia;
     private String puesto;
-    private String institución;
+    private String institucion;
     private String urlImagen;
+    @Temporal(value = TemporalType.DATE)
     private Date fechaDesde;
+    @Temporal(value = TemporalType.DATE)
     private Date fechaHasta;
 
     public Experiencia() {
     }
 
-    public Experiencia(Long idExperiencia, String puesto, String institución, String urlImagen, Date fechaDesde, Date fechaHasta) {
+    public Experiencia(Long idExperiencia, String puesto, String institucion, String urlImagen, Date fechaDesde, Date fechaHasta) {
         this.idExperiencia = idExperiencia;
         this.puesto = puesto;
-        this.institución = institución;
+        this.institucion = institucion;
         this.urlImagen = urlImagen;
         this.fechaDesde = fechaDesde;
         this.fechaHasta = fechaHasta;
