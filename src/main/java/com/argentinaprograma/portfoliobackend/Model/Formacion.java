@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,6 +27,7 @@ public class Formacion {
     private String institucion;
     private String carrera;
     private String urlImagen;
+        @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaFin;
 
     public Formacion() {
