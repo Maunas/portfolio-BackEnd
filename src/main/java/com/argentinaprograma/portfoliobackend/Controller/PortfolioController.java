@@ -47,7 +47,7 @@ public class PortfolioController {
         return portServ.modificarFormacion(form);
     }
 
-    @PutMapping("/portfolio/edit/skill/modificar")
+    @PutMapping("/portfolio/edit/habilidad/modificar")
     public HabilidadDTO modificarHabilidad(@RequestBody HabilidadDTO skill) {
         return portServ.modificarHabilidad(skill);
     }
@@ -72,7 +72,7 @@ public class PortfolioController {
         return portServ.crearFormacion(form);
     }
 
-    @PostMapping("/portfolio/edit/skill/crear")
+    @PostMapping("/portfolio/edit/habilidad/crear")
     public HabilidadDTO crearHabilidad(@RequestBody HabilidadDTO skill) {
         return portServ.crearHabilidad(skill);
     }
@@ -87,6 +87,11 @@ public class PortfolioController {
         return portServ.crearContacto(cont);
     }
     
+    @PostMapping("/portfolio/edit/persona/crear")
+    public String crearPersona(@RequestBody PersonaDTO per) {
+        return portServ.crearPersona(per);
+    }
+    
     @DeleteMapping("/portfolio/edit/experiencia/eliminar/{id}")
     public String eliminarExperiencia(@PathVariable Long id) {
         return portServ.eliminarExperiencia(id);
@@ -97,7 +102,7 @@ public class PortfolioController {
         return portServ.eliminarFormacion(id);
     }
 
-    @DeleteMapping("/portfolio/edit/skill/eliminar/{id}")
+    @DeleteMapping("/portfolio/edit/habilidad/eliminar/{id}")
     public String eliminarHabilidad(@PathVariable Long id) {
         return portServ.eliminarHabilidad(id);
     }

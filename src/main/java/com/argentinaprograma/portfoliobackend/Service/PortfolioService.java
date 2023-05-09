@@ -7,6 +7,7 @@ package com.argentinaprograma.portfoliobackend.Service;
 import com.argentinaprograma.portfoliobackend.Dto.*;
 import com.argentinaprograma.portfoliobackend.Model.*;
 import com.argentinaprograma.portfoliobackend.Repository.*;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -134,6 +135,19 @@ public class PortfolioService {
         cont = dtoServ.recuperarContacto(cont, contDto);
         contRepo.save(cont);
         return contDto;
+    }
+
+    public String crearPersona(PersonaDTO persDto) {
+        List<Persona> listaPers = persRepo.findAll();
+        //Comprueba que no hayan personas guardadas
+        if (listaPers.isEmpty()) {
+            Persona pers = new Persona();
+            pers = dtoServ.recuperarPersona(pers, persDto);
+            persRepo.save(pers);
+            return "Creacion Exitosa";
+        }
+        //TODO Crear una excepcion
+        return "Ya existe una persona";
     }
 
     public String eliminarExperiencia(Long id) {
