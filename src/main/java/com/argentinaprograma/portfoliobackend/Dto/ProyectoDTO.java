@@ -13,7 +13,6 @@ import lombok.Setter;
 @Getter @Setter
 public class ProyectoDTO {
     private Long idProyecto;
-    private int ordenProyecto;
     private String tituloProyecto;
     private String urlProyecto;
     private String descripcion;
@@ -21,9 +20,8 @@ public class ProyectoDTO {
     public ProyectoDTO() {
     }
 
-    public ProyectoDTO(Long idProyecto, int ordenProyecto, String tituloProyecto, String urlProyecto, String descripcion) {
+    public ProyectoDTO(Long idProyecto, String tituloProyecto, String urlProyecto, String descripcion) {
         this.idProyecto = idProyecto;
-        this.ordenProyecto = ordenProyecto;
         this.tituloProyecto = tituloProyecto;
         this.urlProyecto = urlProyecto;
         this.descripcion = descripcion;
