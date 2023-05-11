@@ -21,19 +21,17 @@ public class PortfolioDTO {
     private List<FormacionDTO> formacion;
     private List<HabilidadDTO> habilidad;
     private List<ProyectoDTO> proyecto;
-    private List<TipoSkillDTO> tipoSkill;
 
     public PortfolioDTO() {
     }
 
-    public PortfolioDTO(PersonaDTO persona, List<ContactoDTO> contacto, List<ExperienciaDTO> experiencia, List<FormacionDTO> formacion, List<HabilidadDTO> habilidad, List<ProyectoDTO> proyecto, List<TipoSkillDTO> tipoSkill) {
+    public PortfolioDTO(PersonaDTO persona, List<ContactoDTO> contacto, List<ExperienciaDTO> experiencia, List<FormacionDTO> formacion, List<HabilidadDTO> habilidad, List<ProyectoDTO> proyecto) {
         this.persona = persona;
         this.contacto = contacto;
         this.experiencia = experiencia;
         this.formacion = formacion;
         this.habilidad = habilidad;
         this.proyecto = proyecto;
-        this.tipoSkill = tipoSkill;
     }
     
     
