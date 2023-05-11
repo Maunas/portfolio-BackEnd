@@ -35,87 +35,87 @@ public class PortfolioController {
     }
 
     @PutMapping("/portfolio/edit/persona/modificar")
-    public PersonaDTO modificarPersona(@RequestBody PersonaDTO per) {
+    public PersonaDTO modificarPersona(@RequestBody PersonaDTO per) throws Exception {
         return portServ.modificarPersona(per);
     }
 
     @PutMapping("/portfolio/edit/experiencia/modificar")
-    public ExperienciaDTO modificarExperiencia(@RequestBody ExperienciaDTO exp) {
+    public ExperienciaDTO modificarExperiencia(@RequestBody ExperienciaDTO exp) throws Exception {
         return portServ.modificarExperiencia(exp);
     }
 
     @PutMapping("/portfolio/edit/formacion/modificar")
-    public FormacionDTO modificarFormacion(@RequestBody FormacionDTO form) {
+    public FormacionDTO modificarFormacion(@RequestBody FormacionDTO form) throws Exception {
         return portServ.modificarFormacion(form);
     }
 
     @PutMapping("/portfolio/edit/habilidad/modificar")
-    public HabilidadDTO modificarHabilidad(@RequestBody HabilidadDTO skill) {
+    public HabilidadDTO modificarHabilidad(@RequestBody HabilidadDTO skill) throws Exception {
         return portServ.modificarHabilidad(skill);
     }
 
     @PutMapping("/portfolio/edit/proyecto/modificar")
-    public ProyectoDTO modificarProyecto(@RequestBody ProyectoDTO proy) {
+    public ProyectoDTO modificarProyecto(@RequestBody ProyectoDTO proy) throws Exception {
         return portServ.modificarProyecto(proy);
     }
 
     @PutMapping("/portfolio/edit/contacto/modificar")
-    public ContactoDTO modificarContacto(@RequestBody ContactoDTO cont) {
+    public ContactoDTO modificarContacto(@RequestBody ContactoDTO cont) throws Exception {
         return portServ.modificarContacto(cont);
     }
 
     @PostMapping("/portfolio/edit/experiencia/crear")
-    public ExperienciaDTO crearExperiencia(@RequestBody ExperienciaDTO exp) {
+    public ExperienciaDTO crearExperiencia(@RequestBody ExperienciaDTO exp) throws Exception {
         return portServ.crearExperiencia(exp);
     }
 
     @PostMapping("/portfolio/edit/formacion/crear")
-    public FormacionDTO crearFormacion(@RequestBody FormacionDTO form) {
+    public FormacionDTO crearFormacion(@RequestBody FormacionDTO form) throws Exception {
         return portServ.crearFormacion(form);
     }
 
     @PostMapping("/portfolio/edit/habilidad/crear")
-    public HabilidadDTO crearHabilidad(@RequestBody HabilidadDTO skill) {
+    public HabilidadDTO crearHabilidad(@RequestBody HabilidadDTO skill) throws Exception {
         return portServ.crearHabilidad(skill);
     }
 
     @PostMapping("/portfolio/edit/proyecto/crear")
-    public ProyectoDTO crearProyecto(@RequestBody ProyectoDTO proy) {
+    public ProyectoDTO crearProyecto(@RequestBody ProyectoDTO proy) throws Exception {
         return portServ.crearProyecto(proy);
     }
 
     @PostMapping("/portfolio/edit/contacto/crear")
-    public ContactoDTO crearContacto(@RequestBody ContactoDTO cont) {
+    public ContactoDTO crearContacto(@RequestBody ContactoDTO cont) throws Exception {
         return portServ.crearContacto(cont);
     }
     
     @PostMapping("/portfolio/edit/persona/crear")
-    public String crearPersona(@RequestBody PersonaDTO per) {
+    public PersonaDTO crearPersona(@RequestBody PersonaDTO per) throws Exception {
         return portServ.crearPersona(per);
     }
     
     @DeleteMapping("/portfolio/edit/experiencia/eliminar/{id}")
-    public String eliminarExperiencia(@PathVariable Long id) {
+    public String eliminarExperiencia(@PathVariable Long id) throws Exception {
         return portServ.eliminarExperiencia(id);
     }
 
     @DeleteMapping("/portfolio/edit/formacion/eliminar/{id}")
-    public String eliminarFormacion(@PathVariable Long id) {
+    public String eliminarFormacion(@PathVariable Long id) throws Exception {
         return portServ.eliminarFormacion(id);
     }
 
     @DeleteMapping("/portfolio/edit/habilidad/eliminar/{id}")
-    public String eliminarHabilidad(@PathVariable Long id) {
+    public String eliminarHabilidad(@PathVariable Long id) throws Exception {
         return portServ.eliminarHabilidad(id);
     }
 
     @DeleteMapping("/portfolio/edit/proyecto/eliminar/{id}")
-    public String eliminarProyecto(@PathVariable Long id) {
+    public String eliminarProyecto(@PathVariable Long id) throws Exception {
         return portServ.eliminarProyecto(id);
     }
 
     @DeleteMapping("/portfolio/edit/contacto/eliminar/{id}")
-    public String eliminarContacto(@PathVariable Long id) {
+    public String eliminarContacto(@PathVariable Long id) throws Exception {
         return portServ.eliminarContacto(id);
     }
     
