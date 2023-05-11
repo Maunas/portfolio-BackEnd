@@ -25,7 +25,7 @@ public class Habilidad {
     private String nombreHabilidad;
     private int valorMax;
     private int nivelHabilidad;
-    String tipoSkill;
+    private String tipoSkill;
 
     public Habilidad() {
     }
