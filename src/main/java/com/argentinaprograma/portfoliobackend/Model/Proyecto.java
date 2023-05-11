@@ -22,7 +22,6 @@ public class Proyecto {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long idProyecto;
-    private int ordenProyecto;
     private String tituloProyecto;
     private String urlProyecto;
     private String descripcion;
@@ -30,9 +29,8 @@ public class Proyecto {
     public Proyecto() {
     }
 
-    public Proyecto(Long idProyecto, int ordenProyecto, String tituloProyecto, String urlProyecto, String descripcion) {
+    public Proyecto(Long idProyecto, String tituloProyecto, String urlProyecto, String descripcion) {
         this.idProyecto = idProyecto;
-        this.ordenProyecto = ordenProyecto;
         this.tituloProyecto = tituloProyecto;
         this.urlProyecto = urlProyecto;
         this.descripcion = descripcion;

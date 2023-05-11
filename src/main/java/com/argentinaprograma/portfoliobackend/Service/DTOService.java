@@ -17,14 +17,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class DTOService {
 
+    //Encargado de conversiones entre Model y DTO
+    
     public PortfolioDTO crearDTOPortfolio(
             Persona pers,
             List<Experiencia> exp,
             List<Formacion> form,
             List<Habilidad> skill,
             List<Contacto> cont,
-            List<Proyecto> proy,
-            List<TipoSkill> tSkill) {
+            List<Proyecto> proy) {
 
         return new PortfolioDTO(
                 crearDTOPersona(pers),
@@ -32,8 +33,7 @@ public class DTOService {
                 crearDTOExperiencia(exp),
                 crearDTOFormacion(form),
                 crearDTOHabilidad(skill),
-                crearDTOProyecto(proy),
-                crearDTOTipoSkill(tSkill)
+                crearDTOProyecto(proy)
         );
     }
 
@@ -87,7 +87,7 @@ public class DTOService {
             skillDto.setNombreHabilidad(habilidad.getNombreHabilidad());
             skillDto.setValorMax(habilidad.getValorMax());
             skillDto.setNivelHabilidad(habilidad.getNivelHabilidad());
-            skillDto.setTipoSkill(habilidad.getTipoSkill().getNombreTipoSkill());
+            skillDto.setTipoSkill(habilidad.getTipoSkill());
             listaSkillDto.add(skillDto);
         }
         return listaSkillDto;
@@ -110,7 +110,6 @@ public class DTOService {
         for (Proyecto proyecto : proy) {
             ProyectoDTO proyDto = new ProyectoDTO();
             proyDto.setIdProyecto(proyecto.getIdProyecto());
-            proyDto.setOrdenProyecto(proyecto.getOrdenProyecto());
             proyDto.setTituloProyecto(proyecto.getTituloProyecto());
             proyDto.setDescripcion(proyecto.getDescripcion());
             proyDto.setUrlProyecto(proyecto.getUrlProyecto());
@@ -119,14 +118,52 @@ public class DTOService {
         return listaProyDto;
     }
 
-    public List<TipoSkillDTO> crearDTOTipoSkill(List<TipoSkill> tSkill) {
-        List<TipoSkillDTO> listaTSkillDto = new ArrayList<>();
-        for (TipoSkill tipoSkill : tSkill) {
-            TipoSkillDTO tSkillDto = new TipoSkillDTO();
-            tSkillDto.setIdTipoSkill(tipoSkill.getIdTipoSkill());
-            tSkillDto.setNombreTipoSkill(tipoSkill.getNombreTipoSkill());
-            listaTSkillDto.add(tSkillDto);
-        }
-        return listaTSkillDto;
+    public Persona recuperarPersona(Persona persona, PersonaDTO persDto){
+        persona.setNombreCompleto(persDto.getNombreCompleto());
+        persona.setDescripcion(persDto.getDescripcion());
+        persona.setNacimiento(persDto.getNacimiento());
+        persona.setProfesion(persDto.getProfesion());
+        persona.setUrlFoto(persDto.getUrlFoto());
+        persona.setUrlBanner(persDto.getUrlBanner());
+        return persona;
     }
+
+    public Experiencia recuperarExperiencia(Experiencia exp, ExperienciaDTO expDto) {
+        exp.setPuesto(expDto.getPuesto());
+        exp.setInstitucion(expDto.getInstitucion());
+        exp.setUrlImagen(expDto.getUrlImagen());
+        exp.setFechaDesde(expDto.getFechaDesde());
+        exp.setFechaHasta(expDto.getFechaHasta());
+        return exp;
+    }
+
+    public Formacion recuperarFormacion(Formacion form, FormacionDTO formDto) {
+        form.setCarrera(formDto.getCarrera());
+        form.setInstitucion(formDto.getInstitucion());
+        form.setUrlImagen(formDto.getUrlImagen());
+        form.setFechaFin(formDto.getFechaFin());
+        return form;
+    }
+
+    public Habilidad recuperarHabilidad(Habilidad skill, HabilidadDTO skillDto) {
+        skill.setNombreHabilidad(skillDto.getNombreHabilidad());
+        skill.setValorMax(skillDto.getValorMax());
+        skill.setNivelHabilidad(skillDto.getNivelHabilidad());
+        skill.setTipoSkill(skillDto.getTipoSkill());
+        return skill;
+    }
+
+    public Proyecto recuperarProyecto(Proyecto proy, ProyectoDTO proyCont) {
+        proy.setTituloProyecto(proyCont.getTituloProyecto());
+        proy.setDescripcion(proyCont.getDescripcion());
+        proy.setUrlProyecto(proyCont.getUrlProyecto());
+        return proy;
+    }
+
+    public Contacto recuperarContacto(Contacto cont, ContactoDTO contDto) {
+        cont.setNombreContacto(contDto.getNombreContacto());
+        cont.setUrlContacto(contDto.getUrlContacto());
+        return cont;
+    }
+    
 }
