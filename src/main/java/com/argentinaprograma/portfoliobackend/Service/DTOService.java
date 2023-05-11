@@ -37,7 +37,7 @@ public class DTOService {
         );
     }
 
-    public PersonaDTO crearDTOPersona(Persona pers) {
+    public PersonaDTO crearDTOPersona(Persona pers){
 
         PersonaDTO persDto = new PersonaDTO();
         persDto.setIdPersona(pers.getIdPersona());
