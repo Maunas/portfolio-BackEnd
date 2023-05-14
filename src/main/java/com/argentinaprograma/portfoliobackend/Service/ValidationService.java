@@ -34,7 +34,7 @@ public class ValidationService {
         if (nuevoPers.getNacimiento() == null) {
             throw new ValidationException("La fecha de nacimiento es un campo obligatorio.");
         }
-        if (!nuevoPers.getNacimiento().before(new Date())) {
+        if (nuevoPers.getNacimiento().after(new Date())) {
             throw new ValidationException("La fecha de nacimiento debe ser anterior al dia de hoy.");
         }
     }
@@ -49,11 +49,10 @@ public class ValidationService {
         if (nuevaExp.getFechaDesde() == null) {
             throw new ValidationException("La fecha de inicio es un campo obligatorio.");
         }
-        if (nuevaExp.getFechaHasta() != null
-                && nuevaExp.getFechaDesde().before(nuevaExp.getFechaHasta())) {
+        if (nuevaExp.getFechaHasta() != null && nuevaExp.getFechaDesde().after(nuevaExp.getFechaHasta())) {
             throw new ValidationException("La fecha de inicio debe ser anterior a la fecha de fin.");
         }
-        if (!nuevaExp.getFechaDesde().before(new Date())) {
+        if (nuevaExp.getFechaDesde().after(new Date())) {
             throw new ValidationException("La fecha de inicio debe ser anterior al dia de hoy.");
         }
 
@@ -66,8 +65,7 @@ public class ValidationService {
         if (nuevaForm.getInstitucion().equals("")) {
             throw new ValidationException("La institución es un campo obligatorio.");
         }
-        if (nuevaForm.getFechaFin() != null
-                && nuevaForm.getFechaFin().before(new Date())) {
+        if (nuevaForm.getFechaFin() != null && nuevaForm.getFechaFin().after(new Date())) {
             throw new ValidationException("La fecha de fin debe ser anterior al dia de hoy.");
         }
     }
