@@ -5,8 +5,11 @@
 package com.argentinaprograma.portfoliobackend.Controller;
 
 import com.argentinaprograma.portfoliobackend.Dto.*;
+import com.argentinaprograma.portfoliobackend.Exceptions.NotFoundException;
 import com.argentinaprograma.portfoliobackend.Service.PortfolioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,10 +33,18 @@ public class PortfolioController {
 
     @GetMapping("/portfolio")
     @ResponseBody
-    public PortfolioDTO obtenerPortfolio() {
+    public PortfolioDTO obtenerPortfolio() throws Exception {
         return portServ.obtenerPortfolio();
     }
 
+    //Recuperación de los datos para el apartado de modificar
+    //Aseguro que, de entrar al enlace sin autenticar no pueda ver los datos
+    @GetMapping("/portfolio/edit")
+    @ResponseBody
+    public PortfolioDTO modificarPortfolio() throws Exception {
+        return portServ.obtenerPortfolio();
+    }
+    
     @PutMapping("/portfolio/edit/persona/modificar")
     public PersonaDTO modificarPersona(@RequestBody PersonaDTO per) throws Exception {
         return portServ.modificarPersona(per);
@@ -95,28 +106,28 @@ public class PortfolioController {
     }
     
     @DeleteMapping("/portfolio/edit/experiencia/eliminar/{id}")
-    public String eliminarExperiencia(@PathVariable Long id) throws Exception {
-        return portServ.eliminarExperiencia(id);
+    public ResponseEntity<String> eliminarExperiencia(@PathVariable Long id) throws Exception {
+        return ResponseEntity.status(HttpStatus.OK).body("{\"resultado\": \"" + portServ.eliminarExperiencia(id) + "\"}");
     }
 
     @DeleteMapping("/portfolio/edit/formacion/eliminar/{id}")
-    public String eliminarFormacion(@PathVariable Long id) throws Exception {
-        return portServ.eliminarFormacion(id);
+    public ResponseEntity<String> eliminarFormacion(@PathVariable Long id) throws Exception {
+        return ResponseEntity.status(HttpStatus.OK).body("{\"resultado\": \"" + portServ.eliminarFormacion(id) + "\"}");
     }
 
     @DeleteMapping("/portfolio/edit/habilidad/eliminar/{id}")
-    public String eliminarHabilidad(@PathVariable Long id) throws Exception {
-        return portServ.eliminarHabilidad(id);
+    public ResponseEntity<String> eliminarHabilidad(@PathVariable Long id) throws Exception {
+        return ResponseEntity.status(HttpStatus.OK).body("{\"resultado\": \"" + portServ.eliminarHabilidad(id) + "\"}");
     }
 
     @DeleteMapping("/portfolio/edit/proyecto/eliminar/{id}")
-    public String eliminarProyecto(@PathVariable Long id) throws Exception {
-        return portServ.eliminarProyecto(id);
+    public ResponseEntity<String> eliminarProyecto(@PathVariable Long id) throws Exception {
+        return ResponseEntity.status(HttpStatus.OK).body("{\"resultado\": \"" + portServ.eliminarProyecto(id) + "\"}");
     }
 
     @DeleteMapping("/portfolio/edit/contacto/eliminar/{id}")
-    public String eliminarContacto(@PathVariable Long id) throws Exception {
-        return portServ.eliminarContacto(id);
+    public ResponseEntity<String>  eliminarContacto(@PathVariable Long id) throws Exception {
+        return ResponseEntity.status(HttpStatus.OK).body("{\"resultado\": \"" + portServ.eliminarContacto(id) + "\"}");
     }
     
 }

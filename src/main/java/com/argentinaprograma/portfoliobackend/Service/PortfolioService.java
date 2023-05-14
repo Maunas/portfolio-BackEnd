@@ -40,7 +40,12 @@ public class PortfolioService {
     @Autowired
     private ValidationService validServ;
 
-    public PortfolioDTO obtenerPortfolio() {
+    public PortfolioDTO obtenerPortfolio() throws NotFoundException {
+        try{
+            List<Persona> personas = persRepo.findAll();
+            if(personas.isEmpty()){
+                throw new NotFoundException("No se ha encontrado persona");
+            }
         return dtoServ.crearDTOPortfolio(
                 persRepo.findAll().get(0),
                 expRepo.findAll(),
@@ -49,6 +54,11 @@ public class PortfolioService {
                 contRepo.findAll(),
                 proyRepo.findAll()
         );
+        } catch (NotFoundException ex) {
+            throw ex;
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
     @Transactional
@@ -167,15 +177,16 @@ public class PortfolioService {
     }
 
     @Transactional
-    public ExperienciaDTO crearExperiencia(ExperienciaDTO nuevaExp) throws ValidationException, Exception {
+    public ExperienciaDTO crearExperiencia(ExperienciaDTO expDto) throws ValidationException, Exception {
         try {
-            validServ.validarExperiencia(nuevaExp);
+            validServ.validarExperiencia(expDto);
             //Crea una nueva experiencia para llenar con los datos de input, excepto el Id.
             Experiencia exp = new Experiencia();
-            exp = dtoServ.recuperarExperiencia(exp, nuevaExp);
+            exp = dtoServ.recuperarExperiencia(exp, expDto);
             //Al no haber id, se crea el registro con save()
             expRepo.save(exp);
-            return nuevaExp;
+            expDto.setIdExperiencia(exp.getIdExperiencia());
+            return expDto;
         } catch (ValidationException ex) {
             throw ex;
         } catch (Exception e) {
@@ -191,6 +202,7 @@ public class PortfolioService {
 
             form = dtoServ.recuperarFormacion(form, formDto);
             formRepo.save(form);
+            formDto.setIdFormacion(form.getIdFormacion());
             return formDto;
         } catch (ValidationException ex) {
             throw ex;
@@ -206,6 +218,7 @@ public class PortfolioService {
             Habilidad skill = new Habilidad();
             skill = dtoServ.recuperarHabilidad(skill, skillDto);
             skillRepo.save(skill);
+            skillDto.setIdHabilidad(skill.getIdHabilidad());
             return skillDto;
         } catch (ValidationException ex) {
             throw ex;
@@ -222,6 +235,7 @@ public class PortfolioService {
 
             proy = dtoServ.recuperarProyecto(proy, proyDto);
             proyRepo.save(proy);
+            proyDto.setIdProyecto(proy.getIdProyecto());
             return proyDto;
         } catch (ValidationException ex) {
             throw ex;
@@ -238,6 +252,7 @@ public class PortfolioService {
 
             cont = dtoServ.recuperarContacto(cont, contDto);
             contRepo.save(cont);
+            contDto.setId(cont.getIdContacto());
             return contDto;
         } catch (ValidationException ex) {
             throw ex;
@@ -258,6 +273,7 @@ public class PortfolioService {
             Persona pers = new Persona();
             pers = dtoServ.recuperarPersona(pers, persDto);
             persRepo.save(pers);
+            persDto.setIdPersona(pers.getIdPersona());
             return persDto;
         } catch (ValidationException ex) {
             throw ex;
