@@ -1,0 +1,56 @@
+[
+{"type":"header","version":"4.8.4","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"bppnmatlccyo3zvyhusg"},
+{"type":"table","name":"contacto","database":"bppnmatlccyo3zvyhusg","data":
+[
+{"id_contacto":"3","nombre_contacto":"Github","url_contacto":"https:\/\/github.com\/Maunas"},
+{"id_contacto":"4","nombre_contacto":"Linkedin","url_contacto":"https:\/\/www.linkedin.com\/in\/gonzalo-maunas-08a50b225\/"}
+]
+}
+,{"type":"table","name":"experiencia","database":"bppnmatlccyo3zvyhusg","data":
+[
+
+]
+}
+,{"type":"table","name":"formacion","database":"bppnmatlccyo3zvyhusg","data":
+[
+{"id_formacion":"25","carrera":"Ingeniería en Sistemas de Información","fecha_fin":null,"institucion":"Universidad Tecnológica Nacional Facultad Regional Mendoza","url_imagen":"https:\/\/drive.google.com\/uc?id=1iyhUZ1ZURSTN3ssIzp049B4kXVmLA0fZ"},
+{"id_formacion":"26","carrera":"Curso de Programación Web Full Stack","fecha_fin":"2021-11-30","institucion":"Egg Educación","url_imagen":"https:\/\/drive.google.com\/uc?id=1Ou4m5UgMgLPfTnS6DaNhcFLu1M6Vhw_7"},
+{"id_formacion":"27","carrera":"Técnico en Aeronáutica","fecha_fin":"2018-12-07","institucion":"Escuela Técnica 4-106 IV Brigada Aérea","url_imagen":"https:\/\/drive.google.com\/uc?id=1v8UEbCguV41cWpPk8E9vqRcfJj3J_q88"}
+]
+}
+,{"type":"table","name":"habilidad","database":"bppnmatlccyo3zvyhusg","data":
+[
+{"id_habilidad":"8","nivel_habilidad":"6","nombre_habilidad":"Java","tipo_skill":"Hard","valor_max":"10"},
+{"id_habilidad":"10","nivel_habilidad":"7","nombre_habilidad":"HTML","tipo_skill":"Hard","valor_max":"10"},
+{"id_habilidad":"11","nivel_habilidad":"7","nombre_habilidad":"MySQL","tipo_skill":"Hard","valor_max":"10"},
+{"id_habilidad":"12","nivel_habilidad":"5","nombre_habilidad":"Angular","tipo_skill":"Hard","valor_max":"10"},
+{"id_habilidad":"13","nivel_habilidad":"7","nombre_habilidad":"Trabajo en Equipo","tipo_skill":"Soft","valor_max":"10"},
+{"id_habilidad":"14","nivel_habilidad":"8","nombre_habilidad":"Resolución de Problemas","tipo_skill":"Soft","valor_max":"10"},
+{"id_habilidad":"15","nivel_habilidad":"6","nombre_habilidad":"Comunicación Efectiva","tipo_skill":"Soft","valor_max":"10"},
+{"id_habilidad":"16","nivel_habilidad":"7","nombre_habilidad":"Adaptabilidad","tipo_skill":"Soft","valor_max":"10"},
+{"id_habilidad":"21","nivel_habilidad":"5","nombre_habilidad":"Spring","tipo_skill":"Hard","valor_max":"10"}
+]
+}
+,{"type":"table","name":"hibernate_sequence","database":"bppnmatlccyo3zvyhusg","data":
+[
+{"next_val":"28"},
+{"next_val":"1"}
+]
+}
+,{"type":"table","name":"persona","database":"bppnmatlccyo3zvyhusg","data":
+[
+{"id_persona":"2","descripcion":"Soy un alumno de Ingeniería en Sistemas de Información, actualmente en quinto año. \nSi bien no tengo experiencia laboral, he pasado los últimos años capacitandome, con el fin de desempeñarme en un futuro próximo como desarrollador.\nTengo bastante interés en capacitarme como desarrollador web, y aunque no tenga mucho para completar de mi portfolio, tengo deseos de seguir creciendo como profesional.","nacimiento":"1999-11-11","nombre_completo":"Gonzalo Maunás","profesion":"Estudiante de Ingeniería en Sistemas de Información","url_banner":"https:\/\/drive.google.com\/uc?id=149UcMB8hNd-bvk1Gy0igkX4YKaNrsl_k","url_foto":"https:\/\/drive.google.com\/uc?id=10lQUs9b-rq0WtHv3bAEsfE0Jfzy5HrPD"}
+]
+}
+,{"type":"table","name":"proyecto","database":"bppnmatlccyo3zvyhusg","data":
+[
+
+]
+}
+,{"type":"table","name":"usuario","database":"bppnmatlccyo3zvyhusg","data":
+[
+{"id":"1","password":"{bcrypt}$2a$10$O9WQxUWtyPx4tjauJlJ.MerewHkR2zVU3OF8gPLXuk1UrVmvpcUGu","username":"admin"}
+]
+}
+]
